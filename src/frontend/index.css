@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TrustCap Platform - Blue, Green, Beige Design System */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* TrustCap Palette: Deep Blue + Emerald Green + Warm Beige */
+    --radius: 0.75rem;
+
+    /* Beige background */
+    --background: 0.965 0.012 80;
+    --foreground: 0.18 0.035 260;
+
+    /* Cards: clean white with warm tint */
+    --card: 0.99 0.004 80;
+    --card-foreground: 0.18 0.035 260;
+
+    /* Popover */
+    --popover: 0.99 0.004 80;
+    --popover-foreground: 0.18 0.035 260;
+
+    /* Primary: Deep Blue */
+    --primary: 0.28 0.095 260;
+    --primary-foreground: 0.98 0 0;
+
+    /* Secondary: Soft beige */
+    --secondary: 0.94 0.018 80;
+    --secondary-foreground: 0.28 0.095 260;
+
+    /* Muted */
+    --muted: 0.93 0.012 80;
+    --muted-foreground: 0.52 0.02 260;
+
+    /* Accent: Emerald Green */
+    --accent: 0.45 0.13 152;
+    --accent-foreground: 0.98 0 0;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders */
+    --border: 0.88 0.018 80;
+    --input: 0.88 0.018 80;
+    --ring: 0.45 0.13 152;
+
+    /* Charts */
+    --chart-1: 0.28 0.095 260;
+    --chart-2: 0.45 0.13 152;
+    --chart-3: 0.646 0.222 41.116;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    /* Sidebar */
+    --sidebar: 0.22 0.07 260;
+    --sidebar-foreground: 0.98 0 0;
+    --sidebar-primary: 0.45 0.13 152;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.28 0.095 260;
+    --sidebar-accent-foreground: 0.98 0 0;
+    --sidebar-border: 0.35 0.065 260;
+    --sidebar-ring: 0.45 0.13 152;
+
+    /* Custom TrustCap tokens */
+    --brand-blue: 0.28 0.095 260;
+    --brand-blue-deep: 0.18 0.08 260;
+    --brand-blue-light: 0.55 0.09 250;
+    --brand-green: 0.45 0.13 152;
+    --brand-green-light: 0.62 0.15 150;
+    --brand-beige: 0.965 0.012 80;
+    --brand-beige-dark: 0.92 0.022 75;
+    --positive: 0.52 0.15 150;
+    --negative: 0.55 0.22 28;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", "Cabinet Grotesk", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", "Cabinet Grotesk", sans-serif;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+/* Pause marquee on hover */
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--brand-blue-light));
+  border-radius: 3px;
+}
+
+/* TrustCap gradient utilities */
+.bg-trustcap-hero {
+  background: linear-gradient(135deg, oklch(0.18 0.08 260) 0%, oklch(0.28 0.095 260) 50%, oklch(0.38 0.1 245) 100%);
+}
+
+.bg-trustcap-marquee {
+  background: linear-gradient(90deg, oklch(0.22 0.09 260) 0%, oklch(0.26 0.085 255) 100%);
+}
+
+.text-positive {
+  color: oklch(var(--positive));
+}
+.text-negative {
+  color: oklch(var(--negative));
+}
+.bg-positive {
+  background-color: oklch(0.88 0.07 152);
+}
+.bg-negative {
+  background-color: oklch(0.92 0.06 28);
+}
